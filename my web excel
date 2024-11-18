@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Learning Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* CSS */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+    .hero {
+      height: 100vh;
+      background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: fadeInDown 1.5s ease-out;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      transition: all 0.5s ease-out;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .courses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .course-card {
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      transition: transform 0.3s;
+    }
+    .course-card:hover {
+      transform: scale(1.05);
+    }
+    .course-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Excel Learning Platform</h1>
+  </header>
+  <div class="hero">
+    <div>
+      <h1>Learn Excel Like a Pro</h1>
+      <p>Join our platform to master Excel and boost your skills!</p>
+    </div>
+  </div>
+  <div class="section" id="courses">
+    <h2>Our Courses</h2>
+    <div class="courses">
+      <div class="course-card">
+        <img src="https://via.placeholder.com/300x200" alt="Course 1">
+        <h3>Excel Basics</h3>
+        <p>Learn the fundamentals of Excel and build a strong foundation.</p>
+      </div>
+      <div class="course-card">
+        <img src="https://via.placeholder.com/300x200" alt="Course 2">
+        <h3>Advanced Excel</h3>
+        <p>Master advanced techniques to handle complex data analysis.</p>
+      </div>
+      <div class="course-card">
+        <img src="https://via.placeholder.com/300x200" alt="Course 3">
+        <h3>Excel for Business</h3>
+        <p>Learn how to use Excel in real-world business scenarios.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Excel Learning Platform. All rights reserved.</p>
+  </footer>
+  <script>
+    // JavaScript
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
